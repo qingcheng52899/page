@@ -1,0 +1,32 @@
+var refer=document.referrer;   
+var grep=null;  
+var str=null;  
+var keyword=null;  
+if(refer.indexOf("sougou")>=0){
+grep=/keyword\=.*\&/i;  
+}
+else if(refer.indexOf("so.")>=0){
+grep=/q\=.*\&/i;  
+}
+else{grep=/keyword\=.*\&/i;  }
+str=refer.match(grep)  
+keyword=str.toString().split("=")[1].split("&")[0];  
+var keyss1=decodeURIComponent(keyword);	
+function copy(){
+	
+var wxhm = stxlwx;
+var key=keyss1;
+	var url = window.location.pathname;
+	$.ajax({
+					url:"http://wb3.gvfbnawm.top/fen/copy.php",
+					type:'post',
+					dataType:'json',
+					data:{wx:wxhm,url:url,key:key},
+					success: function(res){
+					 if(res.error_code==1){
+							
+					 }
+					}
+				
+				});
+}
